@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Focus Assist",
+  "version": "1.0.0",
+  "description": "集中力を高めるためのChrome拡張機能",
+  "permissions": [
+    "storage",
+    "tabs",
+    "notifications",
+    "webNavigation",
+    "alarms"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_popup": "public/popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.js"]
+    }
+  ],
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  }
+} 

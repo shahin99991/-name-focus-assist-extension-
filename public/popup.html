@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Focus Assist</title>
+  <style>
+    body {
+      width: 320px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    .tab-container {
+      display: flex;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #ddd;
+    }
+    .tab {
+      padding: 8px 16px;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+    .tab.active {
+      border-bottom: 2px solid #007bff;
+      color: #007bff;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Focus Assist</h1>
+  
+  <div class="tab-container">
+    <button class="tab active" data-tab="blocker">サイトブロック</button>
+    <button class="tab" data-tab="timer">タイマー</button>
+    <button class="tab" data-tab="sound">環境音</button>
+    <button class="tab" data-tab="motivation">メッセージ</button>
+  </div>
+
+  <div id="blocker" class="tab-content active">
+    <div class="form-group">
+      <label for="block-url">ブロックするURL:</label>
+      <input type="text" id="block-url" placeholder="例: facebook.com">
+    </div>
+    <button id="add-block">追加</button>
+    <div id="block-list"></div>
+  </div>
+
+  <div id="timer" class="tab-content">
+    <div class="form-group">
+      <label for="work-time">作業時間 (分):</label>
+      <input type="number" id="work-time" value="25">
+    </div>
+    <div class="form-group">
+      <label for="break-time">休憩時間 (分):</label>
+      <input type="number" id="break-time" value="5">
+    </div>
+    <button id="start-timer">開始</button>
+    <div id="timer-display"></div>
+  </div>
+
+  <div id="sound" class="tab-content">
+    <div class="form-group">
+      <label for="sound-type">環境音:</label>
+      <select id="sound-type">
+        <option value="rain">雨音</option>
+        <option value="waves">波の音</option>
+        <option value="cafe">カフェの雑音</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="volume">音量:</label>
+      <input type="range" id="volume" min="0" max="100" value="50">
+    </div>
+    <button id="play-sound">再生</button>
+  </div>
+
+  <div id="motivation" class="tab-content">
+    <div class="form-group">
+      <label for="message">モチベーションメッセージ:</label>
+      <input type="text" id="message" placeholder="メッセージを入力">
+    </div>
+    <button id="add-message">追加</button>
+    <div id="message-list"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html> 
