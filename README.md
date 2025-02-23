@@ -67,7 +67,7 @@ MIT License
 
 ## 作者
 
-[Your Name]
+[ロホマン　シャヒン]
 
 ## 貢献
 
